@@ -4,8 +4,15 @@
   See here for more details: http://jacamo.sourceforge.net/doc/jcm.html.
 */
 
-mas lab {
-    agent org_agent 
-    agent sensing_agent 
-    agent acting_agent
+mas lab_monitoring_org {
+    agent org_agent: org_agent.asl
+    agent sensing_agent: sensing_agent.asl
+    agent acting_agent: acting_agent.asl
+    
+    organisation lab_monitoring_org: org-spec.xml {
+        group monitoring_team: monitoring_team {
+            responsible-for: monitoring_scheme
+        }
+        scheme monitoring_scheme: monitoring_scheme
+    }
 }
